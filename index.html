@@ -19,7 +19,7 @@
 <body class="bg-cover bg-center bg-no-repeat min-h-screen flex flex-col" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');">
 
     <!-- ================= NAVBAR START ================= -->
-    <nav class="bg-white/95 backdrop-blur-sm shadow-md w-full z-50">
+    <nav class="fixed top-0 bg-white/95 backdrop-blur-sm shadow-md w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 
@@ -29,11 +29,13 @@
                 </div>
 
                 <!-- Menu Desktop (Sembunyi di HP, muncul di layar medium 'md:') -->
+                <!-- Menu Desktop -->
                 <div class="hidden md:flex space-x-8">
+                    <!-- Kita arahkan Beranda ke paling atas (body) -->
                     <a href="#" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Beranda</a>
-                    <a href="#" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Tema</a>
-                    <a href="#" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Harga</a>
-                    <a href="#" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Kontak</a>
+                    <a href="#tema" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Tema</a>
+                    <a href="#harga" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Harga</a>
+                    <a href="#kontak" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Kontak</a>
                 </div>
 
                 <!-- Tombol Hamburger (Muncul di HP, sembunyi di layar medium 'md:') -->
@@ -52,10 +54,10 @@
         <!-- Menu Mobile (Awalnya disembunyikan pakai class 'hidden') -->
         <div id="menu-mobile" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#d4af37] hover:bg-gray-50">Beranda</a>
-                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#d4af37] hover:bg-gray-50">Tema</a>
-                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#d4af37] hover:bg-gray-50">Harga</a>
-                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#d4af37] hover:bg-gray-50">Kontak</a>
+                <a href="#" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Beranda</a>
+                    <a href="#tema" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Tema</a>
+                    <a href="#harga" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Harga</a>
+                    <a href="#kontak" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Kontak</a>
             </div>
         </div>
     </nav>
@@ -63,35 +65,96 @@
 
     <!-- ================= MAIN CONTENT ================= -->
     <!-- flex-grow memastikan form tetap di tengah layar yang tersisa -->
-    <main class="flex-grow flex items-center justify-center p-4">
-        
-        <!-- Card Form Undangan -->
-        <div class="bg-white/95 p-8 rounded-lg shadow-xl w-full max-w-md kartu-kustom animate-on-load backdrop-blur-sm">
-            <h1 class="font-serif-elegan text-3xl font-bold text-center text-gray-900 mb-2">Buat Undangan</h1>
-            <p class="text-sm text-center text-gray-600 mb-8">Silakan isi data untuk undangan Anda</p>
-
-            <form class="space-y-6">
-                <div>
-                    <label for="mempelai-pria" class="block text-sm font-medium text-gray-700">Nama Mempelai Pria</label>
-                    <input type="text" id="mempelai-pria" name="mempelai-pria" placeholder="Contoh: Romeo" 
-                        class="mt-1 block w-full px-4 py-2.5 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm">
-                </div>
-
-                <div>
-                    <label for="mempelai-wanita" class="block text-sm font-medium text-gray-700">Nama Mempelai Wanita</label>
-                    <input type="text" id="mempelai-wanita" name="mempelai-wanita" placeholder="Contoh: Juliet" 
-                        class="mt-1 block w-full px-4 py-2.5 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm">
-                </div>
-
-                <button type="button" 
-                    class="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-semibold text-white bg-[#d4af37] hover:bg-[#b5942f] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#d4af37]">
-                    Buat Sekarang
-                </button>
-            </form>
+    <!-- ================= MAIN CONTENT (HERO SECTION) ================= -->
+    <main id="beranda" class="flex-grow flex items-center justify-center p-4 pt-32 pb-20">
+        <!-- Kotak transparan untuk teks sambutan -->
+        <div class="text-center bg-white/85 p-10 md:p-16 rounded-xl backdrop-blur-md max-w-3xl shadow-2xl animate-on-load kartu-kustom">
+            <h1 class="font-serif-elegan text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">Sebarkan Momen Bahagia Anda dengan Elegan</h1>
+            <p class="text-lg md:text-xl text-gray-700 mb-10">Buat undangan pernikahan digital interaktif dan responsif hanya dalam hitungan menit. Bagikan ke seluruh tamu Anda dengan mudah.</p>
+            
+            <!-- Tombol ini sekarang diarahkan ke halaman generator.html -->
+            <a href="generator.html" class="inline-block bg-[#d4af37] text-white font-bold py-4 px-10 rounded-full hover:bg-[#b5942f] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-lg">
+                Mulai Buat Undangan
+            </a>
         </div>
-
     </main>
+    <!-- ================= SECTION: TEMA ================= -->
+    <section id="tema" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif-elegan text-3xl font-bold text-center text-gray-900 mb-12">Pilihan Tema Elegan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tema 1 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gray-300 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=600&auto=format&fit=crop');"></div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Classic Floral</h3>
+                        <p class="text-sm text-gray-600">Nuansa bunga romantis dengan sentuhan warna pastel.</p>
+                    </div>
+                </div>
+                <!-- Tema 2 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gray-300 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=600&auto=format&fit=crop');"></div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Rustic Minimalist</h3>
+                        <p class="text-sm text-gray-600">Sederhana dan hangat dengan elemen kayu dan daun kering.</p>
+                    </div>
+                </div>
+                <!-- Tema 3 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gray-300 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=600&auto=format&fit=crop');"></div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Luxury Gold</h3>
+                        <p class="text-sm text-gray-600">Desain premium dengan paduan warna hitam dan emas elegan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- ================= SECTION: HARGA ================= -->
+    <section id="harga" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif-elegan text-3xl font-bold text-center text-gray-900 mb-12">Paket Harga</h2>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Paket Basic -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center border-t-4 border-gray-300">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Basic</h3>
+                    <p class="text-4xl font-bold text-[#d4af37] mb-6">Gratis</p>
+                    <ul class="text-gray-600 space-y-3 mb-8 text-left">
+                        <li>✓ 1 Pilihan Tema Standar</li>
+                        <li>✓ Form RSVP Sederhana</li>
+                        <li>✗ Kustomisasi Musik</li>
+                        <li>✗ Fitur Buku Tamu</li>
+                    </ul>
+                    <button class="w-full py-2 px-4 border border-[#d4af37] text-[#d4af37] rounded-md hover:bg-[#d4af37] hover:text-white transition-colors">Pilih Basic</button>
+                </div>
+                <!-- Paket Premium -->
+                <div class="bg-white p-8 rounded-lg shadow-xl text-center border-t-4 border-[#d4af37] transform md:-translate-y-4">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Premium</h3>
+                    <p class="text-4xl font-bold text-[#d4af37] mb-6">Rp 99.000</p>
+                    <ul class="text-gray-600 space-y-3 mb-8 text-left">
+                        <li>✓ Semua Pilihan Tema Premium</li>
+                        <li>✓ Form RSVP & Buku Tamu</li>
+                        <li>✓ Kustomisasi Audio/Musik</li>
+                        <li>✓ Hitung Mundur & Google Maps</li>
+                    </ul>
+                    <button class="w-full py-2 px-4 bg-[#d4af37] text-white rounded-md hover:bg-[#b5942f] transition-colors shadow-lg">Pilih Premium</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION: KONTAK & FOOTER ================= -->
+    <footer id="kontak" class="py-12 bg-gray-900 text-white text-center">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="font-serif-elegan text-3xl font-bold mb-6 text-[#d4af37]">Hubungi Kami</h2>
+            <p class="text-gray-400 mb-8">Punya pertanyaan atau butuh bantuan khusus untuk undangan Anda? Tim dukungan kami siap membantu mewujudkan undangan impian Anda.</p>
+            <a href="mailto:halo@undanganpro.com" class="inline-block bg-[#d4af37] text-white font-bold py-3 px-8 rounded-full hover:bg-[#b5942f] transition-colors mb-12">
+                Kirim Email ke Kami
+            </a>
+            <p class="text-gray-500 text-sm">© 2026 UndanganPro. Seluruh hak cipta dilindungi.</p>
+        </div>
+    </footer>
     <!-- ================= JAVASCRIPT ================= -->
     <script>
         // Logika sederhana untuk tombol Hamburger
