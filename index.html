@@ -1,32 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Generator Undangan Acara | Elegant Edition</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .font-serif-elegan { font-family: 'Playfair Display', serif; }
+    </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md" kartu-kustom>
-    <h1 class="text-2xl font-bold text-center text-gray-800 mb-2">Platform Web Generator Undangan</h1>
-    <p class="text-sm text-center text-gray-500 mb-6">Silahkan isi data untuk undangan Anda</p>
+<body class="bg-cover bg-center bg-no-repeat min-h-screen flex flex-col" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');">
 
-    <!-- Form Input Data Undangan -->
-     <form class="space-y-4">
-        <div>
-        <label for="mempelai-pria" class="block text-sm font-medium text-gray-700">Nama Mempelai Pria</label>
-        <input type="text" id="mempelai-pria" name="mempelai-pria" placeholder="Contoh: Romeo" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+    <!-- ================= NAVBAR START ================= -->
+    <nav class="bg-white/95 backdrop-blur-sm shadow-md w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <span class="font-serif-elegan font-bold text-2xl text-[#d4af37]">UndanganPro</span>
+                </div>
+
+                <!-- Menu Desktop (Sembunyi di HP, muncul di layar medium 'md:') -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Beranda</a>
+                    <a href="#" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Tema</a>
+                    <a href="#" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Harga</a>
+                    <a href="#" class="text-gray-800 hover:text-[#d4af37] font-medium transition-colors">Kontak</a>
+                </div>
+
+                <!-- Tombol Hamburger (Muncul di HP, sembunyi di layar medium 'md:') -->
+                <div class="md:hidden flex items-center">
+                    <button id="btn-hamburger" class="text-gray-800 hover:text-[#d4af37] focus:outline-none">
+                        <!-- Icon Garis Tiga (SVG) -->
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
         </div>
 
-        <div>
-        <label for="mempelai-wanita" class="block text-sm font-medium text-gray-700">Nama Mempelai Wanita</label>
-        <input type="text" id="mempelai-wanita" name="mempelai-wanita" placeholder="Contoh: Juliet" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+        <!-- Menu Mobile (Awalnya disembunyikan pakai class 'hidden') -->
+        <div id="menu-mobile" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#d4af37] hover:bg-gray-50">Beranda</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#d4af37] hover:bg-gray-50">Tema</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#d4af37] hover:bg-gray-50">Harga</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#d4af37] hover:bg-gray-50">Kontak</a>
+            </div>
         </div>
-    
-        <button  type="button" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Buat Undangan</button>
-     </form>
-     </div>
+    </nav>
+    <!-- ================= NAVBAR END ================= -->
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <!-- flex-grow memastikan form tetap di tengah layar yang tersisa -->
+    <main class="flex-grow flex items-center justify-center p-4">
+        
+        <!-- Card Form Undangan -->
+        <div class="bg-white/95 p-8 rounded-lg shadow-xl w-full max-w-md kartu-kustom animate-on-load backdrop-blur-sm">
+            <h1 class="font-serif-elegan text-3xl font-bold text-center text-gray-900 mb-2">Buat Undangan</h1>
+            <p class="text-sm text-center text-gray-600 mb-8">Silakan isi data untuk undangan Anda</p>
+
+            <form class="space-y-6">
+                <div>
+                    <label for="mempelai-pria" class="block text-sm font-medium text-gray-700">Nama Mempelai Pria</label>
+                    <input type="text" id="mempelai-pria" name="mempelai-pria" placeholder="Contoh: Romeo" 
+                        class="mt-1 block w-full px-4 py-2.5 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm">
+                </div>
+
+                <div>
+                    <label for="mempelai-wanita" class="block text-sm font-medium text-gray-700">Nama Mempelai Wanita</label>
+                    <input type="text" id="mempelai-wanita" name="mempelai-wanita" placeholder="Contoh: Juliet" 
+                        class="mt-1 block w-full px-4 py-2.5 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm">
+                </div>
+
+                <button type="button" 
+                    class="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-semibold text-white bg-[#d4af37] hover:bg-[#b5942f] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#d4af37]">
+                    Buat Sekarang
+                </button>
+            </form>
+        </div>
+
+    </main>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // Logika sederhana untuk tombol Hamburger
+        const btnHamburger = document.getElementById('btn-hamburger');
+        const menuMobile = document.getElementById('menu-mobile');
+
+        btnHamburger.addEventListener('click', () => {
+            // Toggle (tambah/hapus) class 'hidden' saat tombol diklik
+            menuMobile.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
