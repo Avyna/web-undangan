@@ -1,0 +1,9 @@
+.kartu-kustom {
+    border-top: 5px solid #2563eb;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.kartu-kustom:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
