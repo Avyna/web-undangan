@@ -4,8 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-        
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <h1 class="text-2xl font-bold text-center text-gray-800 mb-2">Platform Web Generator Undangan</h1>
+    <p class="text-sm text-center text-gray-500 mb-6">Silahkan isi data untuk undangan Anda</p>
+
+    <!-- Form Input Data Undangan -->
+     <form class="space-y-4">
+        <div>
+        <label for="mempelai-pria" class="block text-sm font-medium text-gray-700">Nama Mempelai Pria</label>
+        <input type="text" id="mempelai-pria" name="mempelai-pria" placeholder="Contoh: Romeo" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+        </div>
+
+        <div>
+        <label for="mempelai-wanita" class="block text-sm font-medium text-gray-700">Nama Mempelai Wanita</label>
+        <input type="text" id="mempelai-wanita" name="mempelai-wanita" placeholder="Contoh: Juliet" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+        </div>
+    
+        <button  type="button" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Buat Undangan</button>
+     </form>
+     </div>
 </body>
 </html>
