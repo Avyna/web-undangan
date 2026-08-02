@@ -1,3 +1,43 @@
+<?php
+// 1. Memanggil file koneksi database
+require 'koneksi.php';
+
+// 2. Mengecek apakah tombol "Proses Undangan" (submit) sudah ditekan
+if (isset($_POST['submit'])) {
+    
+    // 3. Menangkap data yang dikirim dari form dan menyimpannya ke dalam variabel
+    $mempelai_pria   = $_POST['mempelai-pria'];
+    $mempelai_wanita = $_POST['mempelai-wanita'];
+    $tanggal_acara   = $_POST['tanggal-acara'];
+    $waktu_acara     = $_POST['waktu-acara'];
+    $lokasi_acara    = $_POST['lokasi-acara'];
+
+    // 4. Menyusun query SQL untuk memasukkan data ke tabel data_acara
+    $query = "INSERT INTO data_acara (mempelai_pria, mempelai_wanita, tanggal_acara, waktu_acara, lokasi_acara) 
+              VALUES ('$mempelai_pria', '$mempelai_wanita', '$tanggal_acara', '$waktu_acara', '$lokasi_acara')";
+
+    // 5. Mengeksekusi query ke dalam database
+    $eksekusi = mysqli_query($koneksi, $query);
+
+    // 6. Mengecek apakah data berhasil masuk
+    if ($eksekusi) {
+        // Mengambil ID yang baru saja digenerate oleh MySQL (Auto Increment)
+        $id_baru = mysqli_insert_id($koneksi);
+
+        // Jika berhasil, munculkan pesan dan langsung arahkan ke link undangan mereka!
+        echo "<script>
+                alert('Sempurna! Undangan Anda berhasil dibuat.');
+                document.location.href = 'undangan.php?id=" . $id_baru . "';
+              </script>";
+    } else {
+        // Jika gagal, munculkan pesan error
+        echo "<script>
+                alert('Waduh, data gagal disimpan!');
+              </script>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -29,28 +69,33 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label for="mempelai-pria" class="block text-sm font-medium text-gray-700">Nama Mempelai Pria</label>
-                    <input type="text" id="mempelai-pria" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm">
+                    <!-- Tambahkan name="mempelai-pria" -->
+                    <input type="text" id="mempelai-pria" name="mempelai-pria" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm">
                 </div>
                 <div>
                     <label for="mempelai-wanita" class="block text-sm font-medium text-gray-700">Nama Mempelai Wanita</label>
-                    <input type="text" id="mempelai-wanita" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm">
+                    <!-- Tambahkan name="mempelai-wanita" -->
+                    <input type="text" id="mempelai-wanita" name="mempelai-wanita" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm">
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label for="tanggal-acara" class="block text-sm font-medium text-gray-700">Tanggal Acara</label>
-                    <input type="date" id="tanggal-acara" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm">
+                    <!-- Tambahkan name="tanggal-acara" -->
+                    <input type="date" id="tanggal-acara" name="tanggal-acara" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm">
                 </div>
                 <div>
                     <label for="waktu-acara" class="block text-sm font-medium text-gray-700">Waktu Acara</label>
-                    <input type="time" id="waktu-acara" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm">
+                    <!-- Tambahkan name="waktu-acara" -->
+                    <input type="time" id="waktu-acara" name="waktu-acara" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm">
                 </div>
             </div>
 
             <div>
                 <label for="lokasi-acara" class="block text-sm font-medium text-gray-700">Lokasi / Alamat Lengkap</label>
-                <textarea id="lokasi-acara" rows="3" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm"></textarea>
+                <!-- Tambahkan name="lokasi-acara" -->
+                <textarea id="lokasi-acara" name="lokasi-acara" rows="3" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm"></textarea>
             </div>
 
             <button type="submit" name="submit" class="w-full py-3 px-4 rounded-md shadow-sm text-sm font-semibold text-white bg-[#d4af37] hover:bg-[#b5942f] transition-all">

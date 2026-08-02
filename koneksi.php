@@ -6,7 +6,7 @@ $db = "db_undangan";
 
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 
-if (!koneksi){
+if (!$koneksi){
     die("Koneksi databsae gagal: ".mysqli_connect_error());
 }
 ?>
