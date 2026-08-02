@@ -25,7 +25,7 @@
         <p class="text-sm text-center text-gray-600 mb-8">Lengkapi data di bawah ini untuk membuat undangan digital Anda</p>
 
         <!-- Form Kita Sebelumnya -->
-        <form class="space-y-6">
+        <form action="" method="POST" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label for="mempelai-pria" class="block text-sm font-medium text-gray-700">Nama Mempelai Pria</label>
@@ -53,7 +53,7 @@
                 <textarea id="lokasi-acara" rows="3" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-[#d4af37] focus:border-[#d4af37] sm:text-sm"></textarea>
             </div>
 
-            <button type="button" class="w-full py-3 px-4 rounded-md shadow-sm text-sm font-semibold text-white bg-[#d4af37] hover:bg-[#b5942f] transition-all">
+            <button type="submit" name="submit" class="w-full py-3 px-4 rounded-md shadow-sm text-sm font-semibold text-white bg-[#d4af37] hover:bg-[#b5942f] transition-all">
                 Proses Undangan
             </button>
         </form>
